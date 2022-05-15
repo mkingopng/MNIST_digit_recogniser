@@ -1,0 +1,33 @@
+
+# pick a method
+sweep_config = {
+    'method': 'random'
+    }
+
+# name the metric
+metric = {
+    'name': 'loss',
+    'goal': 'minimize'
+    }
+
+sweep_config['metric'] = metric
+    
+# name the hyperparameters
+parameters_dict = {
+    'optimizer': {
+        'values': ['adam', 'sgd']
+        },
+    'fc_layer_size': {
+        'values': [128, 256, 512]
+        },
+    'dropout': {
+          'values': [0.3, 0.4, 0.5]
+        },
+    }
+
+sweep_config['parameters'] = parameters_dict
+  
+parameters_dict.update({
+    'epochs': {
+      'value': 1 }
+    })
